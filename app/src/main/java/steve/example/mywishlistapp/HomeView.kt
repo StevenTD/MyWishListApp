@@ -22,11 +22,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import steve.example.mywishlistapp.data.DummyWatch
 import steve.example.mywishlistapp.data.Wish
 
 @Composable
-fun HomeView(padding:PaddingValues){
+fun HomeView(
+    navController: NavController,
+    padding:PaddingValues){
     val context = LocalContext.current
     Scaffold(
         modifier = Modifier.padding(padding),
@@ -44,6 +47,8 @@ fun HomeView(padding:PaddingValues){
                 backgroundColor = Color.Black,
                 onClick = {
                     // TODO Add Navgigatipn to add screen
+
+                    navController.navigate(Screen.AddScreen.route)
                     Toast.makeText(context, "Floating Action Button Clicked", Toast.LENGTH_SHORT).show()
                 }) {
 
