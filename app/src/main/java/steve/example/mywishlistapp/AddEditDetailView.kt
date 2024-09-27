@@ -2,6 +2,7 @@ package steve.example.mywishlistapp
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -23,22 +24,27 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 
 @Composable
 fun AddEditDetailView(
+    padding: PaddingValues,
     id: Long,
     viewModel: WishViewModel,
-    navController: NavHostController
+    navController: NavController
 ){
     Scaffold(
+        modifier = Modifier.padding(padding),
         topBar = {
             AppBarView(
                 title =
                     if(id != 0L) stringResource(id = R.string.update_wish)
                     else stringResource(id = R.string.add_wish
                 ),
-                onBackNavClick = {}
+                onBackNavClick = {
+                    navController.navigateUp()
+                }
             )
         }
     ) {
