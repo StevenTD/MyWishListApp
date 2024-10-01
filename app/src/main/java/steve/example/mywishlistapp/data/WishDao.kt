@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 // An Abstract class is a class that has method that don't need implementations
 @Dao
-abstract class WishDAO {
+abstract class WishDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     abstract suspend fun addWish(wishEntity: Wish)
