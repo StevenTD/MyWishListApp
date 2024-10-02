@@ -5,7 +5,7 @@ import androidx.room.Room
 import steve.example.mywishlistapp.data.WishDatabase
 import steve.example.mywishlistapp.data.WishRepository
 
-object Graph {
+object Graph { // Service locator for all application
     lateinit var database: WishDatabase
 
     val wishRepository by lazy{ // By lazy, initialize once only needed and only once
