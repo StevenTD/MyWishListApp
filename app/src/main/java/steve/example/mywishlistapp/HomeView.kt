@@ -49,7 +49,7 @@ fun HomeView(
                     // TODO Add Navgigatipn to add screen
 
                     navController.navigate(Screen.AddScreen.route)
-                    Toast.makeText(context, "Floating Action Button Clicked", Toast.LENGTH_SHORT).show()
+                   // Toast.makeText(context, "Floating Action Button Clicked", Toast.LENGTH_SHORT).show()
                 }) {
 
                 Icon(
