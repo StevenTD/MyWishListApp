@@ -23,7 +23,7 @@ fun Navigation(
         startDestination = Screen.HomeScreen.route
     ){
         composable(route = Screen.HomeScreen.route){
-            HomeView(navController = navController,padding = padding)
+            HomeView(viewModel,navController = navController,padding = padding)
         }
         composable(route = Screen.AddScreen.route){
             AddEditDetailView(padding=padding,id = 0L, viewModel = viewModel, navController = navController)

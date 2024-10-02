@@ -17,6 +17,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -28,6 +29,7 @@ import steve.example.mywishlistapp.data.Wish
 
 @Composable
 fun HomeView(
+    viewModel: WishViewModel,
     navController: NavController,
     padding:PaddingValues){
     val context = LocalContext.current
@@ -60,10 +62,11 @@ fun HomeView(
 
         }
     ) {
+        val wishList = viewModel.getAllWishes.collectAsState(initial = listOf())
         LazyColumn(modifier = Modifier
             .fillMaxSize()
             .padding(it)) {
-            items(DummyWatch.wishList){
+            items(wishList.value){
                 wish -> WishItem(wish = wish, onClick = {
                     Toast.makeText(context, "Item Clicked", Toast.LENGTH_SHORT).show()
                 })
