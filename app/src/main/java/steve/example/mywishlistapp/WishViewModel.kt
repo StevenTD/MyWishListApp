@@ -13,7 +13,7 @@ import steve.example.mywishlistapp.data.WishRepository
 
 // Store data, load, edit, everything.
 class WishViewModel(
-    private val wishRepository: WishRepository
+    private val wishRepository: WishRepository = Graph.wishRepository
 ):ViewModel() {
 
     var wishTitleState by mutableStateOf("")
