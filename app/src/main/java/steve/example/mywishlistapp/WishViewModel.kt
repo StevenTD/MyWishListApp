@@ -47,4 +47,10 @@ class WishViewModel(
             wishRepository.updateAWish(wish=wish)
         }
     }
+
+    fun getAWishById(id: Long): Flow<Wish> {
+       return wishRepository.getAWishById(id)
+
+    }
+
 }

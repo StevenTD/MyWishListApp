@@ -50,7 +50,7 @@ fun HomeView(
                 onClick = {
                     // TODO Add Navgigatipn to add screen
 
-                    navController.navigate(Screen.AddScreen.route)
+                    navController.navigate(Screen.AddScreen.route + "/0L")
                    // Toast.makeText(context, "Floating Action Button Clicked", Toast.LENGTH_SHORT).show()
                 }) {
 
@@ -68,7 +68,9 @@ fun HomeView(
             .padding(it)) {
             items(wishList.value){
                 wish -> WishItem(wish = wish, onClick = {
-                    Toast.makeText(context, "Item Clicked", Toast.LENGTH_SHORT).show()
+                    val id = wish.id
+                navController.navigate(Screen.AddScreen.route+ "/$id")
+                    //Toast.makeText(context, "Item Clicked", Toast.LENGTH_SHORT).show()
                 })
             }
         }
